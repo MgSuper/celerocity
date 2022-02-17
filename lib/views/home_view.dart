@@ -3,7 +3,6 @@ import 'package:portfolio_website/utils/theme_selector.dart';
 import 'package:portfolio_website/utils/view_wrapper.dart';
 import 'package:portfolio_website/widgets/navigation_arrow.dart';
 
-
 class HomeView extends StatefulWidget {
   @override
   _HomeViewState createState() => _HomeViewState();
@@ -26,30 +25,114 @@ class _HomeViewState extends State<HomeView> {
       children: [
         NavigationArrow(isBackArrow: false),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              width: screenWidth * 0.45,
+            Expanded(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  header(getFontSize(true)),
-                  SizedBox(height: screenHeight * 0.05),
-                  subHeader('Computer Scientist.', getFontSize(false)),
-                  SizedBox(height: screenHeight * 0.01),
-                  subHeader('App Developer.', getFontSize(false)),
-                  SizedBox(height: screenHeight * 0.01),
-                  subHeader('Flutter Enthusiast.', getFontSize(false)),
-                  SizedBox(height: screenHeight * 0.1),
+                  Text(
+                    'Search Celebrity',
+                    style: ThemeSelector.selectBodyText(context).copyWith(
+                      color: Colors.white,
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        child: Container(
+                          height: screenHeight * 0.03,
+                          child: Image.asset(
+                            'assets/icons/search.png',
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: TextField(
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: 'Search ...',
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.2,
+                    width: MediaQuery.of(context).size.width * 0.25,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                    ),
+                    child: Center(
+                      child: Text(
+                        'AD Here',
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
-            SizedBox(width: screenWidth * 0.03),
-            profilePicture()
+            Expanded(
+              flex: 2,
+              child: SingleChildScrollView(
+                child: ListView.builder(
+                  itemCount: 5,
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        index == 0
+                            ? SizedBox()
+                            : SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.02,
+                              ),
+                        Text(
+                          'FEB 17 2022',
+                        ),
+                        Text(
+                          'Ra Mi-Ran & Uhm Ji-Won cast in TVING drama "Cruel Intern"',
+                          style: TextStyle(
+                            color: Colors.blue,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.03,
+                        ),
+                        Image.asset(
+                          'assets/project2.jpg',
+                          fit: BoxFit.cover,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                            vertical: MediaQuery.of(context).size.width * 0.01,
+                          ),
+                          child: Text(
+                            'Ra Mi-Ran & Uhm Ji-Won are cast in TVING drama series “Cruel Intern.” The actresses previously worked together in 2013 movie “Hope.” In movie “Cruel Intern,” Ra Mi-Ran will play Go Hae-Ra. She left her working career to be a full-time mom for the past 7 years, but now wants work again. She gets hired for an intern position at a company where her former colleague Choi Ji-Won (Uhm Ji-Won) now wields power.',
+                            overflow: TextOverflow.clip,
+                          ),
+                        ),
+                        index == 4
+                            ? SizedBox()
+                            : Divider(
+                                height: 3,
+                                thickness: 3,
+                                color: Colors.white,
+                              ),
+                      ],
+                    );
+                  },
+                ),
+              ),
+            ),
           ],
-        )
+        ),
       ],
     );
   }
@@ -116,4 +199,3 @@ class _HomeViewState extends State<HomeView> {
     return Text(text, style: ThemeSelector.selectSubHeadline(context));
   }
 }
-
