@@ -27,52 +27,28 @@ class _HomeViewState extends State<HomeView> {
         Row(
           children: [
             Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Search Celebrity',
-                    style: ThemeSelector.selectBodyText(context).copyWith(
-                      color: Colors.white,
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Container(
-                          height: screenHeight * 0.03,
-                          child: Image.asset(
-                            'assets/icons/search.png',
+              child: Padding(
+                padding: const EdgeInsets.only(top: 30.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: screenHeight * 0.2,
+                      width: screenWidth * 0.3,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                      ),
+                      child: Center(
+                        child: Text(
+                          'AD Here',
+                          style: TextStyle(
+                            color: Colors.black,
                           ),
                         ),
                       ),
-                      Expanded(
-                        child: TextField(
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            hintText: 'Search ...',
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    height: MediaQuery.of(context).size.height * 0.2,
-                    width: MediaQuery.of(context).size.width * 0.25,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
                     ),
-                    child: Center(
-                      child: Text(
-                        'AD Here',
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             Expanded(
@@ -89,12 +65,8 @@ class _HomeViewState extends State<HomeView> {
                         index == 0
                             ? SizedBox()
                             : SizedBox(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.02,
+                                height: screenHeight * 0.02,
                               ),
-                        Text(
-                          'FEB 17 2022',
-                        ),
                         Text(
                           'Ra Mi-Ran & Uhm Ji-Won cast in TVING drama "Cruel Intern"',
                           style: TextStyle(
@@ -103,7 +75,7 @@ class _HomeViewState extends State<HomeView> {
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.03,
+                          height: screenHeight * 0.03,
                         ),
                         Image.asset(
                           'assets/project2.jpg',
@@ -111,7 +83,7 @@ class _HomeViewState extends State<HomeView> {
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(
-                            vertical: MediaQuery.of(context).size.width * 0.01,
+                            vertical: screenHeight * 0.01,
                           ),
                           child: Text(
                             'Ra Mi-Ran & Uhm Ji-Won are cast in TVING drama series “Cruel Intern.” The actresses previously worked together in 2013 movie “Hope.” In movie “Cruel Intern,” Ra Mi-Ran will play Go Hae-Ra. She left her working career to be a full-time mom for the past 7 years, but now wants work again. She gets hired for an intern position at a company where her former colleague Choi Ji-Won (Uhm Ji-Won) now wields power.',
