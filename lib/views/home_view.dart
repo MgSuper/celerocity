@@ -1,8 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/utils/theme_selector.dart';
 import 'package:portfolio_website/utils/view_wrapper.dart';
 import 'package:portfolio_website/views/detail.dart';
+import 'package:portfolio_website/widgets/home_item.dart';
 import 'package:portfolio_website/widgets/navigation_arrow.dart';
+
+import '../utils/firestore_database.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -12,6 +17,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   double screenWidth;
   double screenHeight;
+  List dataList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -55,67 +61,20 @@ class _HomeViewState extends State<HomeView> {
             Expanded(
               flex: 2,
               child: SingleChildScrollView(
-                child: ListView.builder(
-                  itemCount: 5,
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        index == 0
-                            ? SizedBox()
-                            : SizedBox(
-                                height: screenHeight * 0.02,
-                              ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => Detail()),
-                            );
-                          },
-                          child: Text(
-                            'Ra Mi-Ran & Uhm Ji-Won cast in TVING drama "Cruel Intern"',
-                            style: TextStyle(
-                              color: Colors.blue,
-                              decoration: TextDecoration.underline,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: screenHeight * 0.03,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => Detail()),
-                            );
-                          },
-                          child: Image.asset(
-                            'assets/project2.jpg',
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                            vertical: screenHeight * 0.01,
-                          ),
-                          child: Text(
-                            'Ra Mi-Ran & Uhm Ji-Won are cast in TVING drama series “Cruel Intern.” The actresses previously worked together in 2013 movie “Hope.” In movie “Cruel Intern,” Ra Mi-Ran will play Go Hae-Ra. She left her working career to be a full-time mom for the past 7 years, but now wants work again. She gets hired for an intern position at a company where her former colleague Choi Ji-Won (Uhm Ji-Won) now wields power.',
-                            overflow: TextOverflow.clip,
-                          ),
-                        ),
-                        index == 4
-                            ? SizedBox()
-                            : Divider(
-                                height: 3,
-                                thickness: 3,
-                                color: Colors.white,
-                              ),
-                      ],
-                    );
+                child: FutureBuilder(
+                  future: FireStoreDataBase().getData(),
+                  builder: (context, snapshot) {
+                    print(snapshot.data);
+                    if (snapshot.hasError) {
+                      return const Text(
+                        "Something went wrong",
+                      );
+                    }
+                    if (snapshot.connectionState == ConnectionState.done) {
+                      dataList = snapshot.data as List;
+                      return buildItems(dataList);
+                    }
+                    return const Center(child: CircularProgressIndicator());
                   },
                 ),
               ),
@@ -125,6 +84,29 @@ class _HomeViewState extends State<HomeView> {
       ],
     );
   }
+
+  Widget buildItems(dataList) => ListView.separated(
+      padding: const EdgeInsets.all(8),
+      itemCount: dataList.length,
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      separatorBuilder: (BuildContext context, int index) => const Divider(),
+      itemBuilder: (BuildContext context, int index) {
+        return HomeItem(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => Detail(
+                        passedData: dataList[index],
+                      )),
+            );
+          },
+          name: dataList[index]["name"],
+          biography: dataList[index]["biography"],
+          image: dataList[index]["image"],
+        );
+      });
 
   Widget mobileView() {
     return Column(
@@ -172,8 +154,6 @@ class _HomeViewState extends State<HomeView> {
   Widget header(double fontSize) {
     return RichText(
       text: TextSpan(
-        // Note: Styles for TextSpans must be explicitly defined.
-        // Child text spans will inherit styles from parent
         style: ThemeSelector.selectHeadline(context),
         children: <TextSpan>[
           TextSpan(text: 'Hi, my name is '),
