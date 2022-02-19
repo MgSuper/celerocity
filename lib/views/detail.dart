@@ -98,56 +98,26 @@ class Detail extends StatelessWidget {
                       style: ThemeSelector.selectSubHeadline(context),
                     ),
                     ProfileRow(
-                      icon: Icon(
-                        Icons.circle,
-                        size: screenHeight * 0.01,
-                        color: Colors.white,
-                      ),
                       infoLabel: 'Name : ',
                       infoText: 'Paing Takhon',
                     ),
                     ProfileRow(
-                      icon: Icon(
-                        Icons.circle,
-                        size: screenHeight * 0.01,
-                        color: Colors.white,
-                      ),
                       infoLabel: 'Full Name : ',
                       infoText: 'Sit Ko Paing',
                     ),
                     ProfileRow(
-                      icon: Icon(
-                        Icons.circle,
-                        size: screenHeight * 0.01,
-                        color: Colors.white,
-                      ),
                       infoLabel: 'Birthdate : ',
                       infoText: '17.7.1996',
                     ),
                     ProfileRow(
-                      icon: Icon(
-                        Icons.circle,
-                        size: screenHeight * 0.01,
-                        color: Colors.white,
-                      ),
                       infoLabel: 'Blood Type : ',
                       infoText: '-',
                     ),
                     ProfileRow(
-                      icon: Icon(
-                        Icons.circle,
-                        size: screenHeight * 0.01,
-                        color: Colors.white,
-                      ),
                       infoLabel: 'Height : ',
                       infoText: '180 cm',
                     ),
                     ProfileRow(
-                      icon: Icon(
-                        Icons.circle,
-                        size: screenHeight * 0.01,
-                        color: Colors.white,
-                      ),
                       infoLabel: 'Native : ',
                       infoText: 'Myanmar',
                     ),
@@ -189,11 +159,9 @@ class Detail extends StatelessWidget {
 }
 
 class ProfileRow extends StatelessWidget {
-  Icon icon;
   String infoLabel;
   String infoText;
   ProfileRow({
-    this.icon,
     this.infoLabel,
     this.infoText,
   });
@@ -204,7 +172,11 @@ class ProfileRow extends StatelessWidget {
       padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 12.0),
       child: Row(
         children: [
-          icon,
+          Icon(
+            Icons.circle,
+            size: 10.0,
+            color: Colors.white,
+          ),
           SizedBox(
             width: 15.0,
           ),
