@@ -10,8 +10,6 @@ import 'package:portfolio_website/widgets/custom_tab.dart';
 import 'package:portfolio_website/widgets/custom_tab_bar.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
-
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -65,11 +63,28 @@ class _HomePageState extends State<HomePage>
       backgroundColor: Color(0xff1e1e24),
       key: scaffoldKey,
       endDrawer: drawer(),
-      body: Padding(
-        padding: EdgeInsets.only(top: topPadding, bottom: bottomPadding),
-        child:
-        ViewWrapper(desktopView: desktopView(), mobileView: mobileView()),
+      appBar: AppBar(
+        backgroundColor: Color(0xff1e1e24),
+        elevation: 0,
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/logo.jpeg'),
+                fit: BoxFit.fill,
+              ),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+        actions: [
+          CustomTabBar(
+              controller: tabController,
+              tabs: contentViews.map((e) => e.tab).toList()),
+        ],
       ),
+      body: ViewWrapper(desktopView: desktopView(), mobileView: mobileView()),
     );
   }
 
@@ -78,14 +93,6 @@ class _HomePageState extends State<HomePage>
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        /// Tab Bar
-        Container(
-          height: screenHeight * 0.05,
-          child: CustomTabBar(
-              controller: tabController,
-              tabs: contentViews.map((e) => e.tab).toList()),
-        ),
-
         /// Tab Bar View
         Container(
           height: screenHeight * 0.8,
@@ -141,19 +148,19 @@ class _HomePageState extends State<HomePage>
           children: [Container(height: screenHeight * 0.1)] +
               contentViews
                   .map((e) => Container(
-                child: ListTile(
-                  title: Text(
-                    e.tab.title,
-                    style: Theme.of(context).textTheme.button,
-                  ),
-                  onTap: () {
-                    itemScrollController.scrollTo(
-                        index: contentViews.indexOf(e),
-                        duration: Duration(milliseconds: 300));
-                    Navigator.pop(context);
-                  },
-                ),
-              ))
+                        child: ListTile(
+                          title: Text(
+                            e.tab.title,
+                            style: Theme.of(context).textTheme.button,
+                          ),
+                          onTap: () {
+                            itemScrollController.scrollTo(
+                                index: contentViews.indexOf(e),
+                                duration: Duration(milliseconds: 300));
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ))
                   .toList(),
         ),
       ),

@@ -50,6 +50,7 @@ flutter:
   assets:
     - assets/
     - assets/celebrities/
+    - assets/icons/
 
   fonts:
     - family: Barlow

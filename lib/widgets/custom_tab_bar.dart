@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTabBar extends StatelessWidget {
-  CustomTabBar(
-      {@required this.controller, @required this.tabs});
+  CustomTabBar({@required this.controller, @required this.tabs});
 
   final TabController controller;
   final List<Widget> tabs;
@@ -13,8 +12,8 @@ class CustomTabBar extends StatelessWidget {
     double tabBarScaling = screenWidth > 1400
         ? 0.21
         : screenWidth > 1100
-        ? 0.3
-        : 0.4;
+            ? 0.3
+            : 0.4;
     return Padding(
       padding: EdgeInsets.only(right: screenWidth * 0.05),
       child: Container(
@@ -25,7 +24,7 @@ class CustomTabBar extends StatelessWidget {
               splashColor: Colors.transparent,
               hoverColor: Colors.transparent),
           child: TabBar(
-            indicatorSize: TabBarIndicatorSize.tab,
+            indicatorSize: TabBarIndicatorSize.label,
             controller: controller,
             indicatorColor: Color(0xff21a179),
             tabs: tabs,
@@ -35,4 +34,3 @@ class CustomTabBar extends StatelessWidget {
     );
   }
 }
-
