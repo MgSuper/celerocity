@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/utils/theme_selector.dart';
 import 'package:portfolio_website/utils/view_wrapper.dart';
+import 'package:portfolio_website/views/detail.dart';
 import 'package:portfolio_website/widgets/navigation_arrow.dart';
 
 class HomeView extends StatefulWidget {
@@ -67,19 +68,35 @@ class _HomeViewState extends State<HomeView> {
                             : SizedBox(
                                 height: screenHeight * 0.02,
                               ),
-                        Text(
-                          'Ra Mi-Ran & Uhm Ji-Won cast in TVING drama "Cruel Intern"',
-                          style: TextStyle(
-                            color: Colors.blue,
-                            decoration: TextDecoration.underline,
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Detail()),
+                            );
+                          },
+                          child: Text(
+                            'Ra Mi-Ran & Uhm Ji-Won cast in TVING drama "Cruel Intern"',
+                            style: TextStyle(
+                              color: Colors.blue,
+                              decoration: TextDecoration.underline,
+                            ),
                           ),
                         ),
                         SizedBox(
                           height: screenHeight * 0.03,
                         ),
-                        Image.asset(
-                          'assets/project2.jpg',
-                          fit: BoxFit.cover,
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => Detail()),
+                            );
+                          },
+                          child: Image.asset(
+                            'assets/project2.jpg',
+                            fit: BoxFit.cover,
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(
