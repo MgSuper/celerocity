@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_website/widgets/home_item.dart';
 
 class CustomTabBar extends StatelessWidget {
   CustomTabBar({@required this.controller, @required this.tabs});
@@ -16,20 +17,36 @@ class CustomTabBar extends StatelessWidget {
             : 0.4;
     return Padding(
       padding: EdgeInsets.only(right: screenWidth * 0.05),
-      child: Container(
-        width: screenWidth * tabBarScaling,
-        child: Theme(
-          data: ThemeData(
-              highlightColor: Colors.transparent,
-              splashColor: Colors.transparent,
-              hoverColor: Colors.transparent),
-          child: TabBar(
-            indicatorSize: TabBarIndicatorSize.label,
-            controller: controller,
-            indicatorColor: Color(0xff21a179),
-            tabs: tabs,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              child: ClipOval(
+                child: Image.asset(
+                  'assets/logo.jpeg',
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
           ),
-        ),
+          Container(
+            width: screenWidth * tabBarScaling,
+            child: Theme(
+              data: ThemeData(
+                  highlightColor: Colors.transparent,
+                  splashColor: Colors.transparent,
+                  hoverColor: Colors.transparent),
+              child: TabBar(
+                indicatorSize: TabBarIndicatorSize.label,
+                controller: controller,
+                indicatorColor: Color(0xff21a179),
+                tabs: tabs,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

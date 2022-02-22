@@ -63,27 +63,27 @@ class _HomePageState extends State<HomePage>
       backgroundColor: Color(0xff1e1e24),
       key: scaffoldKey,
       endDrawer: drawer(),
-      appBar: AppBar(
-        backgroundColor: Color(0xff1e1e24),
-        elevation: 0,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/logo.jpeg'),
-                fit: BoxFit.fill,
-              ),
-              shape: BoxShape.circle,
-            ),
-          ),
-        ),
-        actions: [
-          CustomTabBar(
-              controller: tabController,
-              tabs: contentViews.map((e) => e.tab).toList()),
-        ],
-      ),
+      // appBar: AppBar(
+      //   backgroundColor: Color(0xff1e1e24),
+      //   elevation: 0,
+      //   leading: Padding(
+      //     padding: const EdgeInsets.all(8.0),
+      //     child: Container(
+      //       decoration: BoxDecoration(
+      //         image: DecorationImage(
+      //           image: AssetImage('assets/logo.jpeg'),
+      //           fit: BoxFit.fill,
+      //         ),
+      //         shape: BoxShape.circle,
+      //       ),
+      //     ),
+      //   ),
+      //   actions: [
+      //     CustomTabBar(
+      //         controller: tabController,
+      //         tabs: contentViews.map((e) => e.tab).toList()),
+      //   ],
+      // ),
       body: ViewWrapper(desktopView: desktopView(), mobileView: mobileView()),
     );
   }
@@ -93,6 +93,14 @@ class _HomePageState extends State<HomePage>
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
+        /// Tab Bar
+        Container(
+          height: screenHeight * 0.07,
+          child: CustomTabBar(
+              controller: tabController,
+              tabs: contentViews.map((e) => e.tab).toList()),
+        ),
+
         /// Tab Bar View
         Container(
           height: screenHeight * 0.8,
@@ -106,7 +114,7 @@ class _HomePageState extends State<HomePage>
         ),
 
         /// Bottom Bar
-        BottomBar()
+        // BottomBar()
       ],
     );
   }

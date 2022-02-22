@@ -1,10 +1,8 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/utils/theme_selector.dart';
 import 'package:portfolio_website/utils/view_wrapper.dart';
-import 'package:portfolio_website/views/detail.dart';
-import 'package:portfolio_website/widgets/home_item.dart';
+import 'package:portfolio_website/widgets/build_mobile_item.dart';
+import 'package:portfolio_website/widgets/build_web_item.dart';
 import 'package:portfolio_website/widgets/navigation_arrow.dart';
 
 import '../utils/firestore_database.dart';
@@ -30,10 +28,10 @@ class _HomeViewState extends State<HomeView> {
   Widget desktopView() {
     return Stack(
       children: [
-        NavigationArrow(isBackArrow: false),
         Row(
           children: [
             Expanded(
+              flex: 2,
               child: Padding(
                 padding: const EdgeInsets.only(top: 30.0),
                 child: Column(
@@ -59,7 +57,7 @@ class _HomeViewState extends State<HomeView> {
               ),
             ),
             Expanded(
-              flex: 2,
+              flex: 4,
               child: SingleChildScrollView(
                 child: FutureBuilder(
                   future: FireStoreDataBase().getData(),
@@ -72,50 +70,41 @@ class _HomeViewState extends State<HomeView> {
                     }
                     if (snapshot.connectionState == ConnectionState.done) {
                       dataList = snapshot.data as List;
-                      return buildItems(dataList);
+                      return BuildWebItem(dataList: dataList);
                     }
                     return const Center(child: CircularProgressIndicator());
                   },
                 ),
               ),
             ),
+            Expanded(
+              child: NavigationArrow(isBackArrow: false),
+            )
           ],
         ),
       ],
     );
   }
 
-  Widget buildItems(dataList) => ListView.separated(
-      padding: const EdgeInsets.all(8),
-      itemCount: dataList.length,
-      shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      separatorBuilder: (BuildContext context, int index) => const Divider(),
-      itemBuilder: (BuildContext context, int index) {
-        return HomeItem(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => Detail(
-                        passedData: dataList[index],
-                      )),
-            );
-          },
-          name: dataList[index]["name"],
-          biography: dataList[index]["biography"],
-          image: dataList[index]["image"],
-        );
-      });
-
   Widget mobileView() {
     return Column(
       children: [
-        profilePicture(),
-        SizedBox(height: screenHeight * 0.02),
-        header(30),
-        SizedBox(height: screenHeight * 0.01),
-        subHeader('Computer Scientist - App Developer - Flutter Enthusiast', 15)
+        FutureBuilder(
+          future: FireStoreDataBase().getData(),
+          builder: (context, snapshot) {
+            print(snapshot.data);
+            if (snapshot.hasError) {
+              return const Text(
+                "Something went wrong",
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              dataList = snapshot.data as List;
+              return BuildMobileItem(dataList: dataList);
+            }
+            return const Center(child: CircularProgressIndicator());
+          },
+        ),
       ],
     );
   }
