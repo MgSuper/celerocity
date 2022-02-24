@@ -12,16 +12,6 @@ class BuildMobileItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          height: MediaQuery.of(context).size.height * 0.1,
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(color: Colors.white),
-          child: Text(
-            'AD',
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.black),
-          ),
-        ),
         ListView.separated(
             padding: const EdgeInsets.all(8),
             itemCount: dataList.length,
@@ -32,12 +22,16 @@ class BuildMobileItem extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               return HomeItem(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => Detail(
-                              passedData: dataList[index],
-                            )),
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //       builder: (context) => Detail(
+                  //             passedData: dataList[index],
+                  //           )),
+                  // );
+                  Navigator.of(context).pushNamed(
+                    '/detail',
+                    arguments: dataList[index],
                   );
                 },
                 name: dataList[index]["name"],

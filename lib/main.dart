@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/homepage.dart';
+import 'package:portfolio_website/views/app_router.dart';
 
 void main() {
   runApp(MyApp());
@@ -7,6 +8,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  final AppRouter _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
               caption:
                   TextStyle(fontSize: 15, color: Colors.white, height: 1.25),
               button: TextStyle(fontSize: 17, color: Color(0xff1e1e24)))),
-      home: HomePage(),
+      onGenerateRoute: _appRouter.onGeneratedRoute,
     );
   }
 }

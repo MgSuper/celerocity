@@ -31,32 +31,6 @@ class _HomeViewState extends State<HomeView> {
         Row(
           children: [
             Expanded(
-              flex: 2,
-              child: Padding(
-                padding: const EdgeInsets.only(top: 30.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      height: screenHeight * 0.2,
-                      width: screenWidth * 0.3,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                      ),
-                      child: Center(
-                        child: Text(
-                          'AD Here',
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Expanded(
               flex: 4,
               child: SingleChildScrollView(
                 child: FutureBuilder(

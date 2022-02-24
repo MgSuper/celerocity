@@ -5,7 +5,6 @@ import 'package:portfolio_website/utils/view_wrapper.dart';
 import 'package:portfolio_website/views/about_view.dart';
 import 'package:portfolio_website/views/home_view.dart';
 import 'package:portfolio_website/views/projects_view.dart';
-import 'package:portfolio_website/widgets/bottom_bar.dart';
 import 'package:portfolio_website/widgets/custom_tab.dart';
 import 'package:portfolio_website/widgets/custom_tab_bar.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
@@ -35,10 +34,6 @@ class _HomePageState extends State<HomePage>
     ContentView(
       tab: CustomTab(title: 'About'),
       content: AboutView(),
-    ),
-    ContentView(
-      tab: CustomTab(title: 'Projects'),
-      content: ProjectsView(),
     )
   ];
 
