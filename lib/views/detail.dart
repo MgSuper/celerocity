@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio_website/utils/theme_selector.dart';
 import 'package:portfolio_website/utils/view_wrapper.dart';
-import 'package:portfolio_website/widgets/bottom_bar.dart';
-import 'package:portfolio_website/widgets/custom_tab_bar.dart';
 import 'package:portfolio_website/widgets/profile_role.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Detail extends StatelessWidget {
-  Detail({this.passedData});
   final passedData;
+  Detail({this.passedData});
   double screenWidth;
   double screenHeight;
 
@@ -34,17 +32,27 @@ class Detail extends StatelessWidget {
         backgroundColor: Color(0xff1e1e24),
         elevation: 0,
         title: Text('Celerocity'),
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/logo.jpeg'),
-                fit: BoxFit.fill,
-              ),
-              shape: BoxShape.circle,
+        leading: Row(
+          children: [
+            IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back),
             ),
-          ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/logo.jpeg'),
+                    fit: BoxFit.fill,
+                  ),
+                  shape: BoxShape.circle,
+                ),
+              ),
+            ),
+          ],
         ),
         actions: [
           IconButton(
@@ -67,28 +75,9 @@ class Detail extends StatelessWidget {
       ),
       body: Row(
         children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  height: screenHeight * 0.2,
-                  width: screenWidth * 0.3,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                  ),
-                  child: Center(
-                    child: Text(
-                      'AD Here',
-                      style: TextStyle(
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          // Expanded(
+          //   child: adSenseAdsView(),
+          // ),
           Expanded(
             flex: 3,
             child: SingleChildScrollView(
@@ -252,16 +241,7 @@ class Detail extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Container(
-            height: MediaQuery.of(context).size.height * 0.1,
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(color: Colors.white),
-            child: Text(
-              'AD',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black),
-            ),
-          ),
+          // adSenseAdsView(),
           Expanded(
             child: SingleChildScrollView(
               child: Padding(

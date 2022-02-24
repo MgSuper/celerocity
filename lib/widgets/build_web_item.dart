@@ -19,12 +19,16 @@ class BuildWebItem extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) {
         return HomeItem(
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => Detail(
-                        passedData: dataList[index],
-                      )),
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(
+            //       builder: (context) => Detail(
+            //             passedData: dataList[index],
+            //           )),
+            // );
+            Navigator.of(context).pushNamed(
+              '/detail',
+              arguments: dataList[index],
             );
           },
           name: dataList[index]["name"],

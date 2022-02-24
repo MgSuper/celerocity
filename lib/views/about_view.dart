@@ -31,7 +31,6 @@ class _AboutViewState extends State<AboutView>
   Widget desktopView() {
     return Stack(
       children: [
-        NavigationArrow(isBackArrow: false),
         NavigationArrow(isBackArrow: true),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
