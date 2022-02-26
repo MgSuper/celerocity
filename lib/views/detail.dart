@@ -106,8 +106,7 @@ class Detail extends StatelessWidget {
                       style: ThemeSelector.selectHeadline(context),
                     ),
                     Container(
-                      height: screenHeight * 0.6,
-                      width: screenWidth * 0.4,
+                      width: screenWidth,
                       child: CachedNetworkImage(
                         progressIndicatorBuilder: (context, url, progress) =>
                             Center(
@@ -117,7 +116,6 @@ class Detail extends StatelessWidget {
                         ),
                         imageUrl: passedData['image'],
                         fit: BoxFit.cover,
-                        width: 500,
                       ),
                     ),
                     Text(
@@ -250,7 +248,7 @@ class Detail extends StatelessWidget {
               : IconButton(
                   icon: FaIcon(FontAwesomeIcons.facebook),
                   onPressed: () => openURL(passedData['facebook']),
-                  iconSize: screenHeight * 0.03,
+                  iconSize: screenHeight * 0.02,
                   color: Colors.blue,
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
@@ -260,7 +258,7 @@ class Detail extends StatelessWidget {
               : IconButton(
                   icon: FaIcon(FontAwesomeIcons.instagram),
                   onPressed: () => openURL(passedData['instagram']),
-                  iconSize: screenHeight * 0.03,
+                  iconSize: screenHeight * 0.02,
                   color: Color(0xFF833AB4),
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
@@ -270,136 +268,137 @@ class Detail extends StatelessWidget {
               : IconButton(
                   icon: FaIcon(FontAwesomeIcons.twitter),
                   onPressed: () => openURL(passedData['twitter']),
-                  iconSize: screenHeight * 0.03,
+                  iconSize: screenHeight * 0.02,
                   color: Colors.blue,
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                 ),
         ],
       ),
-      body: Column(
-        children: [
-          // adSenseAdsView(),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      passedData['name'],
-                      style: ThemeSelector.selectHeadline(context),
-                    ),
-                    Container(
-                      height: screenHeight * 0.6,
-                      width: screenWidth * 0.6,
-                      child: CachedNetworkImage(
-                        progressIndicatorBuilder: (context, url, progress) =>
-                            Center(
-                          child: CircularProgressIndicator(
-                            value: progress.progress,
-                          ),
-                        ),
-                        imageUrl: passedData['image'],
-                        fit: BoxFit.cover,
+      body: SafeArea(
+        child: Column(
+          children: [
+            // adSenseAdsView(),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        passedData['name'],
+                        style: ThemeSelector.selectHeadline(context),
                       ),
-                    ),
-                    SizedBox(
-                      height: screenHeight * 0.03,
-                    ),
-                    Text(
-                      'Profile',
-                      style: ThemeSelector.selectSubHeadline(context),
-                    ),
-                    ProfileRow(
-                      infoLabel: 'Name : ',
-                      infoText: passedData['name'],
-                    ),
-                    ProfileRow(
-                      infoLabel: 'Birthdate : ',
-                      infoText: passedData['birthdate'],
-                    ),
-                    ProfileRow(
-                      infoLabel: 'Birthplace : ',
-                      infoText: passedData['birthplace'],
-                    ),
-                    ProfileRow(
-                      infoLabel: 'Blood Type : ',
-                      infoText: passedData['blood-type'],
-                    ),
-                    ProfileRow(
-                      infoLabel: 'Height : ',
-                      infoText: passedData['height'],
-                    ),
-                    ProfileRow(
-                      infoLabel: 'Weight : ',
-                      infoText: passedData['weight'],
-                    ),
-                    ProfileRow(
-                      infoLabel: 'Facebook : ',
-                      infoText: passedData['facebook'],
-                    ),
-                    ProfileRow(
-                      infoLabel: 'Instagram : ',
-                      infoText: passedData['instagram'],
-                    ),
-                    ProfileRow(
-                      infoLabel: 'Twitter : ',
-                      infoText: passedData['twitter'],
-                    ),
-                    SizedBox(
-                      height: screenHeight * 0.05,
-                    ),
-                    Text(
-                      'Biography',
-                      style: ThemeSelector.selectSubHeadline(context),
-                    ),
-                    SizedBox(
-                      height: screenHeight * 0.02,
-                    ),
-                    Text(
-                      passedData['biography'],
-                      overflow: TextOverflow.clip,
-                    ),
-                    SizedBox(
-                      height: screenHeight * 0.02,
-                    ),
-                    Text(
-                      'Awards',
-                      style: ThemeSelector.selectSubHeadline(context),
-                    ),
-                    SizedBox(
-                      height: screenHeight * 0.02,
-                    ),
-                    Text(
-                      passedData['awards'],
-                      overflow: TextOverflow.clip,
-                    ),
-                    SizedBox(
-                      height: screenHeight * 0.02,
-                    ),
-                    Text(
-                      'Drama Series',
-                      style: ThemeSelector.selectSubHeadline(context),
-                    ),
-                    SizedBox(
-                      height: screenHeight * 0.02,
-                    ),
-                    Text(
-                      passedData['drama-series'],
-                      overflow: TextOverflow.clip,
-                    ),
-                    SizedBox(
-                      height: screenHeight * 0.02,
-                    ),
-                  ],
+                      Container(
+                        width: screenWidth,
+                        child: CachedNetworkImage(
+                          progressIndicatorBuilder: (context, url, progress) =>
+                              Center(
+                            child: CircularProgressIndicator(
+                              value: progress.progress,
+                            ),
+                          ),
+                          imageUrl: passedData['image'],
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.03,
+                      ),
+                      Text(
+                        'Profile',
+                        style: ThemeSelector.selectSubHeadline(context),
+                      ),
+                      ProfileRow(
+                        infoLabel: 'Name : ',
+                        infoText: passedData['name'],
+                      ),
+                      ProfileRow(
+                        infoLabel: 'Birthdate : ',
+                        infoText: passedData['birthdate'],
+                      ),
+                      ProfileRow(
+                        infoLabel: 'Birthplace : ',
+                        infoText: passedData['birthplace'],
+                      ),
+                      ProfileRow(
+                        infoLabel: 'Blood Type : ',
+                        infoText: passedData['blood-type'],
+                      ),
+                      ProfileRow(
+                        infoLabel: 'Height : ',
+                        infoText: passedData['height'],
+                      ),
+                      ProfileRow(
+                        infoLabel: 'Weight : ',
+                        infoText: passedData['weight'],
+                      ),
+                      ProfileRow(
+                        infoLabel: 'Facebook : ',
+                        infoText: passedData['facebook'],
+                      ),
+                      ProfileRow(
+                        infoLabel: 'Instagram : ',
+                        infoText: passedData['instagram'],
+                      ),
+                      ProfileRow(
+                        infoLabel: 'Twitter : ',
+                        infoText: passedData['twitter'],
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.05,
+                      ),
+                      Text(
+                        'Biography',
+                        style: ThemeSelector.selectSubHeadline(context),
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.02,
+                      ),
+                      Text(
+                        passedData['biography'],
+                        overflow: TextOverflow.clip,
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.02,
+                      ),
+                      Text(
+                        'Awards',
+                        style: ThemeSelector.selectSubHeadline(context),
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.02,
+                      ),
+                      Text(
+                        passedData['awards'],
+                        overflow: TextOverflow.clip,
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.02,
+                      ),
+                      Text(
+                        'Drama Series',
+                        style: ThemeSelector.selectSubHeadline(context),
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.02,
+                      ),
+                      Text(
+                        passedData['drama-series'],
+                        overflow: TextOverflow.clip,
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.02,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

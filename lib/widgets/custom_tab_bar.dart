@@ -27,6 +27,7 @@ class CustomTabBar extends StatelessWidget {
                 child: Image.asset(
                   'assets/logo.jpeg',
                   fit: BoxFit.cover,
+                  width: screenWidth * 0.05,
                 ),
               ),
             ),

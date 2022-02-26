@@ -16,7 +16,7 @@ class HomeItem extends StatelessWidget {
     screenHeight = MediaQuery.of(context).size.height;
     screenWidth = MediaQuery.of(context).size.width;
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         InkWell(
           onTap: onTap,
@@ -35,8 +35,7 @@ class HomeItem extends StatelessWidget {
         InkWell(
           onTap: onTap,
           child: Container(
-            height: screenHeight * 0.6,
-            width: screenWidth * 0.6,
+            width: screenWidth,
             child: CachedNetworkImage(
               progressIndicatorBuilder: (context, url, progress) => Center(
                 child: CircularProgressIndicator(
@@ -45,7 +44,6 @@ class HomeItem extends StatelessWidget {
               ),
               imageUrl: image,
               fit: BoxFit.cover,
-              width: 500,
             ),
           ),
         ),

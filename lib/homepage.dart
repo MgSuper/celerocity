@@ -62,33 +62,35 @@ class _HomePageState extends State<HomePage>
   }
 
   Widget desktopView() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        /// Tab Bar
-        Container(
-          height: screenHeight * 0.07,
-          child: CustomTabBar(
-              controller: tabController,
-              tabs: contentViews.map((e) => e.tab).toList()),
-        ),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          /// Tab Bar
+          Container(
+            height: screenHeight * 0.07,
+            child: CustomTabBar(
+                controller: tabController,
+                tabs: contentViews.map((e) => e.tab).toList()),
+          ),
 
-        /// Tab Bar View
-        Container(
-          height: screenHeight * 0.8,
-          child: TabControllerHandler(
-            tabController: tabController,
-            child: TabBarView(
-              controller: tabController,
-              children: contentViews.map((e) => e.content).toList(),
+          /// Tab Bar View
+          Container(
+            height: screenHeight * 0.8,
+            child: TabControllerHandler(
+              tabController: tabController,
+              child: TabBarView(
+                controller: tabController,
+                children: contentViews.map((e) => e.content).toList(),
+              ),
             ),
           ),
-        ),
 
-        /// Bottom Bar
-        // BottomBar()
-      ],
+          /// Bottom Bar
+          // BottomBar()
+        ],
+      ),
     );
   }
 
@@ -97,25 +99,27 @@ class _HomePageState extends State<HomePage>
       padding: EdgeInsets.only(left: sidePadding, right: sidePadding),
       child: Container(
         width: screenWidth,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            IconButton(
-                iconSize: screenWidth * 0.08,
-                icon: Icon(Icons.menu_rounded),
-                color: Colors.white,
-                splashColor: Colors.transparent,
-                onPressed: () => scaffoldKey.currentState.openEndDrawer()),
-            Expanded(
-              child: ScrollablePositionedList.builder(
-                scrollDirection: Axis.vertical,
-                itemScrollController: itemScrollController,
-                itemCount: contentViews.length,
-                itemBuilder: (context, index) => contentViews[index].content,
-              ),
-            )
-          ],
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                  iconSize: screenWidth * 0.08,
+                  icon: Icon(Icons.menu_rounded),
+                  color: Colors.white,
+                  splashColor: Colors.transparent,
+                  onPressed: () => scaffoldKey.currentState.openEndDrawer()),
+              Expanded(
+                child: ScrollablePositionedList.builder(
+                  scrollDirection: Axis.vertical,
+                  itemScrollController: itemScrollController,
+                  itemCount: contentViews.length,
+                  itemBuilder: (context, index) => contentViews[index].content,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
