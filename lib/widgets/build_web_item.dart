@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio_website/views/detail.dart';
 import 'package:portfolio_website/widgets/home_item.dart';
 
 class BuildWebItem extends StatelessWidget {
@@ -15,17 +14,10 @@ class BuildWebItem extends StatelessWidget {
       itemCount: dataList.length,
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
-      separatorBuilder: (BuildContext context, int index) => const Divider(),
+      separatorBuilder: (BuildContext context, int index) => Divider(),
       itemBuilder: (BuildContext context, int index) {
         return HomeItem(
           onTap: () {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            //       builder: (context) => Detail(
-            //             passedData: dataList[index],
-            //           )),
-            // );
             Navigator.of(context).pushNamed(
               '/detail',
               arguments: dataList[index],

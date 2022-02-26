@@ -4,7 +4,6 @@ import 'package:portfolio_website/utils/tab_controller_handler.dart';
 import 'package:portfolio_website/utils/view_wrapper.dart';
 import 'package:portfolio_website/views/about_view.dart';
 import 'package:portfolio_website/views/home_view.dart';
-import 'package:portfolio_website/views/projects_view.dart';
 import 'package:portfolio_website/widgets/custom_tab.dart';
 import 'package:portfolio_website/widgets/custom_tab_bar.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
@@ -58,27 +57,6 @@ class _HomePageState extends State<HomePage>
       backgroundColor: Color(0xff1e1e24),
       key: scaffoldKey,
       endDrawer: drawer(),
-      // appBar: AppBar(
-      //   backgroundColor: Color(0xff1e1e24),
-      //   elevation: 0,
-      //   leading: Padding(
-      //     padding: const EdgeInsets.all(8.0),
-      //     child: Container(
-      //       decoration: BoxDecoration(
-      //         image: DecorationImage(
-      //           image: AssetImage('assets/logo.jpeg'),
-      //           fit: BoxFit.fill,
-      //         ),
-      //         shape: BoxShape.circle,
-      //       ),
-      //     ),
-      //   ),
-      //   actions: [
-      //     CustomTabBar(
-      //         controller: tabController,
-      //         tabs: contentViews.map((e) => e.tab).toList()),
-      //   ],
-      // ),
       body: ViewWrapper(desktopView: desktopView(), mobileView: mobileView()),
     );
   }
@@ -148,7 +126,17 @@ class _HomePageState extends State<HomePage>
       width: screenWidth * 0.5,
       child: Drawer(
         child: ListView(
-          children: [Container(height: screenHeight * 0.1)] +
+          children: [
+                Container(
+                  height: screenHeight * 0.2,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/logo.jpeg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                )
+              ] +
               contentViews
                   .map((e) => Container(
                         child: ListTile(

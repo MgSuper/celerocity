@@ -15,8 +15,10 @@ class _AboutViewState extends State<AboutView>
     with SingleTickerProviderStateMixin {
   double screenWidth;
   double screenHeight;
-  String loremIpsum =
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.';
+  String visiter =
+      'Visitors can browse to find the data of famous Asian, Hollywood and Bollywood stars around the globe.';
+  String hope =
+      'Hope visitors enjoy spending their spare time by wondering the information of celebrities.';
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,7 @@ class _AboutViewState extends State<AboutView>
             Expanded(
                 flex: 3,
                 child: BulletList(
-                  strings: [loremIpsum, loremIpsum, loremIpsum, loremIpsum],
+                  strings: [visiter, hope],
                 )),
             Spacer(flex: 1),
           ],
@@ -53,14 +55,20 @@ class _AboutViewState extends State<AboutView>
 
   Widget mobileView() {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        SizedBox(height: screenHeight * 0.05),
+        Text(
+          'About Us',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         SizedBox(height: screenHeight * 0.05),
         infoText(),
         SizedBox(height: screenHeight * 0.05),
         Container(
           height: screenHeight * 0.3,
           child: BulletList(
-            strings: [loremIpsum, loremIpsum, loremIpsum, loremIpsum],
+            strings: [visiter, hope],
           ),
         ),
       ],
@@ -85,11 +93,14 @@ class _AboutViewState extends State<AboutView>
       height: getImageSize(),
       width: getImageSize(),
       child: ClipRRect(
-          borderRadius: BorderRadius.circular(getImageSize() / 2),
-          child: Container(
-            color: Colors.grey,
-            child: Center(child: Text('PLACEHOLDER IMAGE')),
-          )),
+        borderRadius: BorderRadius.circular(getImageSize() / 2),
+        child: Container(
+          color: Colors.grey,
+          child: Center(
+            child: Image.asset('assets/logo.jpeg'),
+          ),
+        ),
+      ),
     );
   }
 
@@ -107,7 +118,7 @@ class _AboutViewState extends State<AboutView>
 
   Widget infoText() {
     return Text(
-      'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
+      'Celerocity describes all about celebrities information. We provides the information of celebrities’ profiles, their awards, their dramas and movies.',
       overflow: TextOverflow.clip,
       style: ThemeSelector.selectBodyText(context),
     );

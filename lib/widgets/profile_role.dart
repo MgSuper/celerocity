@@ -14,77 +14,14 @@ class ProfileRow extends StatelessWidget {
     if (infoLabel == 'Facebook : ') {
       return Padding(
         padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 12.0),
-        child: Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(
-              Icons.circle,
-              size: 10.0,
-              color: Colors.white,
+            Text(
+              infoLabel,
             ),
-            SizedBox(
-              width: 15.0,
-            ),
-            Text(infoLabel),
-            TextButton(
-              onPressed: () async {
-                String url = infoText;
-                if (await canLaunch(url)) {
-                  await launch(url);
-                } else {
-                  throw 'Could not launch $url';
-                }
-              },
-              child: Text(infoText),
-            ),
-          ],
-        ),
-      );
-    } else if (infoLabel == 'Instagram : ') {
-      return Padding(
-        padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 12.0),
-        child: Row(
-          children: [
-            Icon(
-              Icons.circle,
-              size: 10.0,
-              color: Colors.white,
-            ),
-            SizedBox(
-              width: 15.0,
-            ),
-            Text(infoLabel),
-            TextButton(
-              onPressed: () async {
-                String url = infoText;
-                if (await canLaunch(url)) {
-                  await launch(url);
-                } else {
-                  throw 'Could not launch $url';
-                }
-              },
-              child: Text(
-                infoText,
-              ),
-            ),
-          ],
-        ),
-      );
-    } else if (infoLabel == 'Twitter : ') {
-      return Padding(
-        padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 12.0),
-        child: Row(
-          children: [
-            Icon(
-              Icons.circle,
-              size: 10.0,
-              color: Colors.white,
-            ),
-            SizedBox(
-              width: 15.0,
-            ),
-            Text(infoLabel),
-            TextButton(
-              onPressed: () async {
+            InkWell(
+              onTap: () async {
                 String url = infoText;
                 if (await canLaunch(url)) {
                   await launch(url);
@@ -95,9 +32,78 @@ class ProfileRow extends StatelessWidget {
               child: Flexible(
                 child: Text(
                   infoText,
+                  textAlign: TextAlign.left,
                   maxLines: 2,
-                  softWrap: false,
                   overflow: TextOverflow.fade,
+                  style: TextStyle(
+                    color: Colors.blue,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    } else if (infoLabel == 'Instagram : ') {
+      return Padding(
+        padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              infoLabel,
+            ),
+            InkWell(
+              onTap: () async {
+                String url = infoText;
+                if (await canLaunch(url)) {
+                  await launch(url);
+                } else {
+                  throw 'Could not launch $url';
+                }
+              },
+              child: Flexible(
+                child: Text(
+                  infoText,
+                  textAlign: TextAlign.left,
+                  maxLines: 2,
+                  overflow: TextOverflow.fade,
+                  style: TextStyle(
+                    color: Colors.blue,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    } else if (infoLabel == 'Twitter : ') {
+      return Padding(
+        padding: const EdgeInsets.only(top: 5.0, bottom: 5.0, left: 12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              infoLabel,
+            ),
+            InkWell(
+              onTap: () async {
+                String url = infoText;
+                if (await canLaunch(url)) {
+                  await launch(url);
+                } else {
+                  throw 'Could not launch $url';
+                }
+              },
+              child: Flexible(
+                child: Text(
+                  infoText,
+                  textAlign: TextAlign.left,
+                  maxLines: 2,
+                  overflow: TextOverflow.fade,
+                  style: TextStyle(
+                    color: Colors.blue,
+                  ),
                 ),
               ),
             ),

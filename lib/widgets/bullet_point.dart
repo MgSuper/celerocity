@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_website/utils/theme_selector.dart';
+import 'package:portfolio_website/widgets/home_item.dart';
 
 class BulletPoint extends StatelessWidget {
   const BulletPoint(
@@ -33,7 +34,9 @@ class BulletPoint extends StatelessWidget {
                   color: Color(0xff21a179),
                   fontSize: ThemeSelector.selectBodyText(context).fontSize),
             ),
-            SizedBox(width: MediaQuery.of(context).size.width * 0.01),
+            SizedBox(
+              width: screenWidth * 0.01,
+            ),
             Flexible(
               child: Text(
                 text,

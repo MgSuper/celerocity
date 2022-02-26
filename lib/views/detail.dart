@@ -55,22 +55,36 @@ class Detail extends StatelessWidget {
           ],
         ),
         actions: [
-          IconButton(
-            icon: FaIcon(FontAwesomeIcons.instagram),
-            onPressed: () => openURL('https://www.instagram.com/paing_takhon'),
-            iconSize: screenHeight * 0.03,
-            color: Color(0xFF833AB4),
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-          ),
-          IconButton(
-            icon: FaIcon(FontAwesomeIcons.facebook),
-            onPressed: () => openURL('https://www.facebook.com/ptk.offical'),
-            iconSize: screenHeight * 0.03,
-            color: Colors.blue,
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-          ),
+          passedData['facebook'] == '-'
+              ? SizedBox()
+              : IconButton(
+                  icon: FaIcon(FontAwesomeIcons.facebook),
+                  onPressed: () => openURL(passedData['facebook']),
+                  iconSize: screenHeight * 0.03,
+                  color: Colors.blue,
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                ),
+          passedData['instagram'] == '-'
+              ? SizedBox()
+              : IconButton(
+                  icon: FaIcon(FontAwesomeIcons.instagram),
+                  onPressed: () => openURL(passedData['instagram']),
+                  iconSize: screenHeight * 0.03,
+                  color: Color(0xFF833AB4),
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                ),
+          passedData['twitter'] == '-'
+              ? SizedBox()
+              : IconButton(
+                  icon: FaIcon(FontAwesomeIcons.twitter),
+                  onPressed: () => openURL(passedData['twitter']),
+                  iconSize: screenHeight * 0.03,
+                  color: Colors.blue,
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                ),
         ],
       ),
       body: Row(
@@ -208,35 +222,59 @@ class Detail extends StatelessWidget {
         backgroundColor: Color(0xff1e1e24),
         elevation: 0,
         title: Text('Celerocity'),
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/logo.jpeg'),
-                fit: BoxFit.fill,
-              ),
-              shape: BoxShape.circle,
+        leading: Row(
+          children: [
+            IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back),
             ),
-          ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/logo.jpeg'),
+                    fit: BoxFit.fill,
+                  ),
+                  shape: BoxShape.circle,
+                ),
+              ),
+            ),
+          ],
         ),
         actions: [
-          IconButton(
-            icon: FaIcon(FontAwesomeIcons.instagram),
-            onPressed: () => openURL('https://www.instagram.com/paing_takhon'),
-            iconSize: screenHeight * 0.03,
-            color: Color(0xFF833AB4),
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-          ),
-          IconButton(
-            icon: FaIcon(FontAwesomeIcons.facebook),
-            onPressed: () => openURL('https://www.facebook.com/ptk.offical'),
-            iconSize: screenHeight * 0.03,
-            color: Colors.blue,
-            splashColor: Colors.transparent,
-            highlightColor: Colors.transparent,
-          ),
+          passedData['facebook'] == '-'
+              ? SizedBox()
+              : IconButton(
+                  icon: FaIcon(FontAwesomeIcons.facebook),
+                  onPressed: () => openURL(passedData['facebook']),
+                  iconSize: screenHeight * 0.03,
+                  color: Colors.blue,
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                ),
+          passedData['instagram'] == '-'
+              ? SizedBox()
+              : IconButton(
+                  icon: FaIcon(FontAwesomeIcons.instagram),
+                  onPressed: () => openURL(passedData['instagram']),
+                  iconSize: screenHeight * 0.03,
+                  color: Color(0xFF833AB4),
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                ),
+          passedData['twitter'] == '-'
+              ? SizedBox()
+              : IconButton(
+                  icon: FaIcon(FontAwesomeIcons.twitter),
+                  onPressed: () => openURL(passedData['twitter']),
+                  iconSize: screenHeight * 0.03,
+                  color: Colors.blue,
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                ),
         ],
       ),
       body: Column(
@@ -256,7 +294,7 @@ class Detail extends StatelessWidget {
                     ),
                     Container(
                       height: screenHeight * 0.6,
-                      width: screenWidth * 0.4,
+                      width: screenWidth * 0.6,
                       child: CachedNetworkImage(
                         progressIndicatorBuilder: (context, url, progress) =>
                             Center(
@@ -266,8 +304,10 @@ class Detail extends StatelessWidget {
                         ),
                         imageUrl: passedData['image'],
                         fit: BoxFit.cover,
-                        width: 500,
                       ),
+                    ),
+                    SizedBox(
+                      height: screenHeight * 0.03,
                     ),
                     Text(
                       'Profile',
