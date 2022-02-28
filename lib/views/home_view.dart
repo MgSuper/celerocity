@@ -32,22 +32,25 @@ class _HomeViewState extends State<HomeView> {
           children: [
             Expanded(
               flex: 4,
-              child: SingleChildScrollView(
-                child: FutureBuilder(
-                  future: FireStoreDataBase().getData(),
-                  builder: (context, snapshot) {
-                    print(snapshot.data);
-                    if (snapshot.hasError) {
-                      return const Text(
-                        "Something went wrong",
-                      );
-                    }
-                    if (snapshot.connectionState == ConnectionState.done) {
-                      dataList = snapshot.data as List;
-                      return BuildWebItem(dataList: dataList);
-                    }
-                    return const Center(child: CircularProgressIndicator());
-                  },
+              child: Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: SingleChildScrollView(
+                  child: FutureBuilder(
+                    future: FireStoreDataBase().getData(),
+                    builder: (context, snapshot) {
+                      print(snapshot.data);
+                      if (snapshot.hasError) {
+                        return const Text(
+                          "Something went wrong",
+                        );
+                      }
+                      if (snapshot.connectionState == ConnectionState.done) {
+                        dataList = snapshot.data as List;
+                        return BuildWebItem(dataList: dataList);
+                      }
+                      return const Center(child: CircularProgressIndicator());
+                    },
+                  ),
                 ),
               ),
             ),
@@ -63,21 +66,24 @@ class _HomeViewState extends State<HomeView> {
   Widget mobileView() {
     return Column(
       children: [
-        FutureBuilder(
-          future: FireStoreDataBase().getData(),
-          builder: (context, snapshot) {
-            print(snapshot.data);
-            if (snapshot.hasError) {
-              return const Text(
-                "Something went wrong",
-              );
-            }
-            if (snapshot.connectionState == ConnectionState.done) {
-              dataList = snapshot.data as List;
-              return BuildMobileItem(dataList: dataList);
-            }
-            return const Center(child: CircularProgressIndicator());
-          },
+        Padding(
+          padding: const EdgeInsets.only(top: 8.0),
+          child: FutureBuilder(
+            future: FireStoreDataBase().getData(),
+            builder: (context, snapshot) {
+              print(snapshot.data);
+              if (snapshot.hasError) {
+                return const Text(
+                  "Something went wrong",
+                );
+              }
+              if (snapshot.connectionState == ConnectionState.done) {
+                dataList = snapshot.data as List;
+                return BuildMobileItem(dataList: dataList);
+              }
+              return const Center(child: CircularProgressIndicator());
+            },
+          ),
         ),
       ],
     );

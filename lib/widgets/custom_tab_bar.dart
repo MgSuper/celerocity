@@ -21,13 +21,12 @@ class CustomTabBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Container(
               child: ClipOval(
                 child: Image.asset(
                   'assets/logo.jpeg',
                   fit: BoxFit.cover,
-                  width: screenWidth * 0.05,
                 ),
               ),
             ),

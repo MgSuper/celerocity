@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage>
         children: [
           /// Tab Bar
           Container(
-            height: screenHeight * 0.07,
+            height: screenHeight * 0.05,
             child: CustomTabBar(
                 controller: tabController,
                 tabs: contentViews.map((e) => e.tab).toList()),
@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage>
 
           /// Tab Bar View
           Container(
-            height: screenHeight * 0.8,
+            height: screenHeight * 0.9,
             child: TabControllerHandler(
               tabController: tabController,
               child: TabBarView(
@@ -86,9 +86,6 @@ class _HomePageState extends State<HomePage>
               ),
             ),
           ),
-
-          /// Bottom Bar
-          // BottomBar()
         ],
       ),
     );
