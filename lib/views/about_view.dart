@@ -55,7 +55,6 @@ class _AboutViewState extends State<AboutView>
 
   Widget mobileView() {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: screenHeight * 0.05),
         Text(

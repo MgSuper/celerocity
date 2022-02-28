@@ -27,8 +27,8 @@ class BuildMobileItem extends StatelessWidget {
                     arguments: dataList[index],
                   );
                 },
-                name: dataList[index]["name"],
-                biography: dataList[index]["biography"],
+                name: dataList[index]["name"] ?? '',
+                biography: dataList[index]["biography"] ?? '',
                 image: dataList[index]["image"],
               );
             }),

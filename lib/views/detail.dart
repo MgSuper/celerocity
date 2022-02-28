@@ -60,7 +60,7 @@ class Detail extends StatelessWidget {
               : IconButton(
                   icon: FaIcon(FontAwesomeIcons.facebook),
                   onPressed: () => openURL(passedData['facebook']),
-                  iconSize: screenHeight * 0.03,
+                  iconSize: screenWidth * 0.05,
                   color: Colors.blue,
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
@@ -70,7 +70,7 @@ class Detail extends StatelessWidget {
               : IconButton(
                   icon: FaIcon(FontAwesomeIcons.instagram),
                   onPressed: () => openURL(passedData['instagram']),
-                  iconSize: screenHeight * 0.03,
+                  iconSize: screenWidth * 0.05,
                   color: Color(0xFF833AB4),
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
@@ -80,7 +80,7 @@ class Detail extends StatelessWidget {
               : IconButton(
                   icon: FaIcon(FontAwesomeIcons.twitter),
                   onPressed: () => openURL(passedData['twitter']),
-                  iconSize: screenHeight * 0.03,
+                  iconSize: screenWidth * 0.05,
                   color: Colors.blue,
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
@@ -248,7 +248,7 @@ class Detail extends StatelessWidget {
               : IconButton(
                   icon: FaIcon(FontAwesomeIcons.facebook),
                   onPressed: () => openURL(passedData['facebook']),
-                  iconSize: screenHeight * 0.02,
+                  iconSize: screenWidth * 0.05,
                   color: Colors.blue,
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
@@ -258,7 +258,7 @@ class Detail extends StatelessWidget {
               : IconButton(
                   icon: FaIcon(FontAwesomeIcons.instagram),
                   onPressed: () => openURL(passedData['instagram']),
-                  iconSize: screenHeight * 0.02,
+                  iconSize: screenWidth * 0.05,
                   color: Color(0xFF833AB4),
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
@@ -268,7 +268,7 @@ class Detail extends StatelessWidget {
               : IconButton(
                   icon: FaIcon(FontAwesomeIcons.twitter),
                   onPressed: () => openURL(passedData['twitter']),
-                  iconSize: screenHeight * 0.02,
+                  iconSize: screenWidth * 0.05,
                   color: Colors.blue,
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
