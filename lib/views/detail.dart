@@ -54,38 +54,38 @@ class Detail extends StatelessWidget {
             ),
           ],
         ),
-        actions: [
-          passedData['facebook'] == '-'
-              ? SizedBox()
-              : IconButton(
-                  icon: FaIcon(FontAwesomeIcons.facebook),
-                  onPressed: () => openURL(passedData['facebook']),
-                  iconSize: screenWidth * 0.05,
-                  color: Colors.blue,
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                ),
-          passedData['instagram'] == '-'
-              ? SizedBox()
-              : IconButton(
-                  icon: FaIcon(FontAwesomeIcons.instagram),
-                  onPressed: () => openURL(passedData['instagram']),
-                  iconSize: screenWidth * 0.05,
-                  color: Color(0xFF833AB4),
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                ),
-          passedData['twitter'] == '-'
-              ? SizedBox()
-              : IconButton(
-                  icon: FaIcon(FontAwesomeIcons.twitter),
-                  onPressed: () => openURL(passedData['twitter']),
-                  iconSize: screenWidth * 0.05,
-                  color: Colors.blue,
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                ),
-        ],
+        // actions: [
+        //   passedData['facebook'] == '-'
+        //       ? SizedBox()
+        //       : IconButton(
+        //           icon: FaIcon(FontAwesomeIcons.facebook),
+        //           onPressed: () => openURL(passedData['facebook']),
+        //           iconSize: screenWidth * 0.05,
+        //           color: Colors.blue,
+        //           splashColor: Colors.transparent,
+        //           highlightColor: Colors.transparent,
+        //         ),
+        //   passedData['instagram'] == '-'
+        //       ? SizedBox()
+        //       : IconButton(
+        //           icon: FaIcon(FontAwesomeIcons.instagram),
+        //           onPressed: () => openURL(passedData['instagram']),
+        //           iconSize: screenWidth * 0.05,
+        //           color: Color(0xFF833AB4),
+        //           splashColor: Colors.transparent,
+        //           highlightColor: Colors.transparent,
+        //         ),
+        //   passedData['twitter'] == '-'
+        //       ? SizedBox()
+        //       : IconButton(
+        //           icon: FaIcon(FontAwesomeIcons.twitter),
+        //           onPressed: () => openURL(passedData['twitter']),
+        //           iconSize: screenWidth * 0.05,
+        //           color: Colors.blue,
+        //           splashColor: Colors.transparent,
+        //           highlightColor: Colors.transparent,
+        //         ),
+        // ],
       ),
       body: Row(
         children: [
@@ -145,18 +145,6 @@ class Detail extends StatelessWidget {
                     ProfileRow(
                       infoLabel: 'Weight : ',
                       infoText: passedData['weight'],
-                    ),
-                    ProfileRow(
-                      infoLabel: 'Facebook : ',
-                      infoText: passedData['facebook'],
-                    ),
-                    ProfileRow(
-                      infoLabel: 'Instagram : ',
-                      infoText: passedData['instagram'],
-                    ),
-                    ProfileRow(
-                      infoLabel: 'Twitter : ',
-                      infoText: passedData['twitter'],
                     ),
                     SizedBox(
                       height: screenHeight * 0.05,
@@ -242,38 +230,6 @@ class Detail extends StatelessWidget {
             ),
           ],
         ),
-        actions: [
-          passedData['facebook'] == '-'
-              ? SizedBox()
-              : IconButton(
-                  icon: FaIcon(FontAwesomeIcons.facebook),
-                  onPressed: () => openURL(passedData['facebook']),
-                  iconSize: screenWidth * 0.05,
-                  color: Colors.blue,
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                ),
-          passedData['instagram'] == '-'
-              ? SizedBox()
-              : IconButton(
-                  icon: FaIcon(FontAwesomeIcons.instagram),
-                  onPressed: () => openURL(passedData['instagram']),
-                  iconSize: screenWidth * 0.05,
-                  color: Color(0xFF833AB4),
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                ),
-          passedData['twitter'] == '-'
-              ? SizedBox()
-              : IconButton(
-                  icon: FaIcon(FontAwesomeIcons.twitter),
-                  onPressed: () => openURL(passedData['twitter']),
-                  iconSize: screenWidth * 0.05,
-                  color: Colors.blue,
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                ),
-        ],
       ),
       body: SafeArea(
         child: Column(
@@ -334,18 +290,6 @@ class Detail extends StatelessWidget {
                       ProfileRow(
                         infoLabel: 'Weight : ',
                         infoText: passedData['weight'],
-                      ),
-                      ProfileRow(
-                        infoLabel: 'Facebook : ',
-                        infoText: passedData['facebook'],
-                      ),
-                      ProfileRow(
-                        infoLabel: 'Instagram : ',
-                        infoText: passedData['instagram'],
-                      ),
-                      ProfileRow(
-                        infoLabel: 'Twitter : ',
-                        infoText: passedData['twitter'],
                       ),
                       SizedBox(
                         height: screenHeight * 0.05,
