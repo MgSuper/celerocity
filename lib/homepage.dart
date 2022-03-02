@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_website/utils/adview.dart';
 import 'package:portfolio_website/utils/content_view.dart';
 import 'package:portfolio_website/utils/tab_controller_handler.dart';
 import 'package:portfolio_website/utils/view_wrapper.dart';
@@ -7,6 +8,9 @@ import 'package:portfolio_website/views/home_view.dart';
 import 'package:portfolio_website/widgets/custom_tab.dart';
 import 'package:portfolio_website/widgets/custom_tab_bar.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+// import 'dart:ui' as ui;
+// // ignore: avoid_web_libraries_in_flutter
+// import 'dart:html';
 
 class HomePage extends StatefulWidget {
   @override
@@ -33,7 +37,7 @@ class _HomePageState extends State<HomePage>
     ContentView(
       tab: CustomTab(title: 'About'),
       content: AboutView(),
-    )
+    ),
   ];
 
   @override
@@ -50,6 +54,14 @@ class _HomePageState extends State<HomePage>
     topPadding = screenHeight * 0.05;
     bottomPadding = screenHeight * 0.03;
     sidePadding = screenWidth * 0.05;
+
+    // // ignore: undefined_prefixed_name
+    // ui.platformViewRegistry.registerViewFactory("add_script", (int viewId) {
+    //   ScriptElement element = ScriptElement()
+    //     ..src = "https://js1.nend.net/js/nendAdLoader.js"
+    //     ..type = "text/javascript";
+    //   return element;
+    // });
 
     print('Width: $screenWidth');
     print('Height: $screenHeight');

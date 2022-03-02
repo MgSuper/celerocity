@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_website/utils/adview.dart';
 import 'package:portfolio_website/utils/theme_selector.dart';
 import 'package:portfolio_website/utils/view_wrapper.dart';
 import 'package:portfolio_website/widgets/bullet_list.dart';
@@ -79,6 +80,7 @@ class _AboutViewState extends State<AboutView>
       width: screenWidth * 0.35,
       child: Column(
         children: [
+          adsenseAdsView(),
           profilePicture(),
           SizedBox(height: screenHeight * 0.05),
           infoText()
