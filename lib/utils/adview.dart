@@ -8,14 +8,14 @@ Widget adsenseAdsView() {
   ui.platformViewRegistry.registerViewFactory(
       'adViewType',
       (int viewID) => IFrameElement()
-        ..width = '320'
-        ..height = '100'
+        ..style.width = '100%'
+        ..style.height = '100%'
         ..src = 'adview.html'
         ..style.border = 'none');
 
   return SizedBox(
-    height: 100.0,
     width: 320.0,
+    height: 100.0,
     child: HtmlElementView(
       viewType: 'adViewType',
     ),
